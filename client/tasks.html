@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO</title>
+    <link rel="stylesheet" href="css\style.css">
+    <script src="\js\jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div class="page">
+        <div id="bg_modal">
+            <div id="modal_create_task">
+                <div onclick="close_modal()" id="close_modal">x</div>
+                <h5>Новая задача</h5>
+                <form method="POST" id="create_task_form">
+                    <input type="hidden" name="user_id" value="" class="user_id_form">
+                    <label for="title">Заголовок задачи
+                        <input id="create_task_title" name="title" type="text">
+                    </label>
+                    <label for="description">Описание задачи
+                        <textarea id="create_task_desc" name="description"></textarea>
+                    </label>
+                    <input type="submit" value="Создать">
+                </form>
+            </div>
+        </div>
+
+        <div id="header">
+            <span>&nbsp;</span>
+            <span class="logo">to-do list</span>
+            <div class="btn-wrapper">
+                <img onclick="logout()" id="logout" src="img/logout.png" alt="logout">
+            </div>
+        </div>
+        
+        <div id="search-wrapper">
+            <form method="POST" id="search_tasks_form">
+                <input class="user_id_form" type="hidden" name="user_id" value="">
+                <label for="search">
+                    <input oninput="tasks_with_search()" id="input_search_task" class="elems_in_search_form" name="search" placeholder="Поиск" type="text">
+                </label>
+                <select onchange="tasks_with_search()" id="input_filter_task" class="elems_in_search_form" name="filter">
+                    <option value="all">Фильтр</option>
+                    <option value="0">В процессе</option>
+                    <option value="1">Выполнено</option>
+                </select>
+            </form>
+        </div>
+
+        <div id="list_tasks_wrapper">
+            <div id="list_tasks"></div>
+            <button onclick="modal_create_task()" id="btn_add_task">+</button>
+        </div>
+        
+        <div id="errors_and_messages">
+            
+        </div>
+    </div>
+</body>
+<script src="js/user_api.js"></script>
+<script src="js/task_api.js"></script>
+</html>

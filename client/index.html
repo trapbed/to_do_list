@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добро пожаловать!</title>
+    <link rel="stylesheet" href="css\style.css">
+    <script src="js\jquery.min.js"></script>
+</head>
+<body>
+    <div class="page">
+        <div id="header">
+            <span class="logo">to-do list</span>
+        </div>
+
+        <div class="form-wrapper">
+            <div class="change_forms">
+                <div id="checked_btn_form" class="btn_change_forms" >Войти</div>
+                <div id="unchecked_btn_form" class="btn_change_forms" >Зарегистрироваться</div>
+            </div>
+            <form id="login_form" action="" method="post">
+                <input type="hidden" name="purpose" id="form_purpose" value="login">
+                <label for="email">Почта
+                    <input required placeholder="Почта (формат эл.почты)" name="email" type="text">
+                </label>
+                <label for="pass" id="label_pass_1">Пароль
+                    <input id="password_1" required placeholder="Пароль (латиница, цифры, не менее 4-х символов)" name="pass" type="password">
+                </label>
+                <label for="pass_2" id="label_pass_2">
+                </label>
+                <span id="error_message_password"></span>
+                <input id="login_submit" type="submit" value="Войти">
+            </form>
+        </div>
+
+        <div id="errors_and_messages"></div>
+    </div>
+</body>
+<script src="js/user_api.js"></script>
+</html>
